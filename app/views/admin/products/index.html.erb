@@ -1,2 +1,52 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
+<h1>Products</h1>
+
+<%= link_to new_admin_product_path, class: "btn btn-success" do %>
+  <span class="fa fa-plus fa-spin"></span> Add new product
+<% end %>
+
+<div class="search-form">
+  <%= search_form_for [:admin, @q] do |f| %>
+    <%= f.text_field :code_cont, placeholder: "Product code" %>
+    <%= f.text_field :name_cont, placeholder: "Name" %>
+
+    <%= f.text_field :location_cont, placeholder: "Location" %>
+    <%= f.submit "Search" %>
+  <% end %>
+</div>
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :code, "Product code")%></th>
+      <th><%= sort_link(@q, :name, "Name")%></th>
+      <th>Category</th>
+      <th><%= sort_link(@q, :location,"Location")%></th>
+      
+      <th>Cena </th>
+      
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.code %></td>
+        <td><%= product.name %></td>
+        <td><%= product.category.name %></td>
+        <td><%= product.location%>
+        
+
+        <td><%= number_to_currency product.price %></td>
+        
+        <td>
+          <%= link_to "Edycja", edit_admin_product_path(product), class: "btn btn-default btn-xs" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+

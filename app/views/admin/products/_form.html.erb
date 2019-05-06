@@ -1,0 +1,16 @@
+<%= simple_form_for [:admin, @product] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :code %>
+  <%= f.input :price %>
+  <%= f.input :location %>
+
+  <%= f.association :category %>
+
+  <div class="field">
+  
+  <%#= f.input :picture %>
+</div>
+
+  <%= f.submit class: "btn btn-success" %>
+<% end %>
