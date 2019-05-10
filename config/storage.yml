@@ -22,7 +22,7 @@ google:
   service: GCS
   project: todo-pic
   credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'] %>
-  bucket: todo-pic-pjbelo
+  bucket: todo-pic
 google_dev:
   service: GCS
   project: todo-pic
