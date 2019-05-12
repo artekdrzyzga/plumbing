@@ -20,14 +20,14 @@ local:
 
 google:
   service: GCS
-  project: todo-pic
+  project: plumbing
   credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'] %>
-  bucket: todo-pic
+  bucket: plumbingo
 google_dev:
   service: GCS
-  project: todo-pic
-  credentials: <%= Rails.root.join("config/secrets/todo-pic.json") %>
-  bucket: todo-pic
+  project: plumbing
+  credentials: <%= Rails.root.join("config/secrets/plumbing.json") %>
+  bucket: plumbingo
 
 
 
